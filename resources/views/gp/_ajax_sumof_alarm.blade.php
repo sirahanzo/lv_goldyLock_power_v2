@@ -1,0 +1,1 @@
+{{ $happening_alarm->count() }}

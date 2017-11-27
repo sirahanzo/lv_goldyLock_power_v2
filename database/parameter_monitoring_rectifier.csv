@@ -1,0 +1,28 @@
+101,Rectfier voltage,V,0,0
+102,Rectifier current,A,0,0
+103,Fan rotation,rpm,0,0
+104,Temperature of rectifier module,&deg;C,0,0
+105,Remote Start Up,,0,0
+106,Remote Shutdown,,0,0
+201,Bus voltage,V,0,0
+202,Battery current,A,0,0
+203,Load current,A,0,0
+204,Battery temperature,&deg;C,0,0
+205,Ambient temperature,&deg;C,0,0
+206,Numbers of rectifier module,,0,0
+207,Ambient humidity,%,0,0
+208,Phase A Voltage,V,0,0
+209,Phase B Voltage,V,0,0
+210,Phase C Voltage,V,0,0
+211,Battery charge/discharge cycle,,0,0
+212,Available capacity of battery,%,0,0
+301,Relay 1,,0,0
+302,Relay 2,,0,0
+303,Relay 3,,0,0
+304,Relay 4,,0,0
+305,Relay 5,,0,0
+306,Relay 6,,0,0
+307,Relay 7,,0,0
+308,Relay 8,,0,0
+309,Relay 9,,0,0
+310,Relay 10,,0,0

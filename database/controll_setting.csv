@@ -1,0 +1,48 @@
+401,AC Voltage High Alarm Set Point,0,,0,0
+402,AC Voltage Low Alarm Set Point,0,,0,0
+403,Current Limit Set Point,0,,0,0
+404,Temperature Compensation Enable,0,,0,0
+405,Temperature Compensation Coefficien,0,C,0,0
+407,Humidity High Alarm Set Point,0,,0,0
+408,Periodical equalizing charge enable,0,,0,0
+409,Periodical equalizing charge interval,0,ms,0,0
+410,Equalizing charge duration,0,ms,0,0
+411,LVD 1,0,,0,0
+412,LVD 1 reconnection set point,0,,0,0
+413,LVD 2,0,,0,0
+414,LVD 2 reconnection set point,0,,0,0
+415,Hibernation enable,0,%,0,0
+416,Hibernation interval time,0,,0,0
+417,Treshold Start Load Capacity,0,%,0,0
+418,Treshold Stop Load Capacity,0,%,0,0
+419,Battery test enable,0,,0,0
+420,Auto Battery Test enable,0,V,0,0
+421,"Start Battery Test (Start Date, auto enable BT)",0,m,0,0
+422,Battery test start voltage set point,0,Vdc,0,0
+423,Battery Test Duration,0,Day,0,0
+424,Battery Test Terminal Voltage,0,%,0,0
+425,Battery Test Interval,0,V,0,0
+426,Battery capacity,0,V,0,0
+427,High Load DC Voltage threshold,0,,0,0
+428,Low Load DC Voltage threshold,0,C,0,0
+429,Battery Charge Current Limit,0,V,0,0
+430,Battery temperature high threshold,0,V,0,0
+431,High Float DC Voltage threshold,0,V,0,0
+432,Low Float DC Voltage threshold,0,V,0,0
+433,Float Charge Voltage,0,V,0,0
+434,Load Current Gain/Slope,0,,0,0
+435,Bus Voltage Gain ,0,,0,0
+436,Load Current High Alarm Set Point,0,,0,0
+437,Battery Temperature High Alarm Set Point,0,,0,0
+438,Ambient Temperature High Alarm Set Point,0,,0,0
+439,Equalizing Charge Voltage Set Point,0,,0,0
+440,Manual Equalizing Charge Enable,0,,0,0
+441,Battery Current Gain/slope,0,,0,0
+442,Battery Current Offset,0,,0,0
+443,Load Current Offset,0,,0,0
+444,Fast Charge Enable,0,,0,0
+445,Fast Charge Voltage Set Point,0,,0,0
+446,Fast Charge Time Limiting,0,,0,0
+447,Max Number of Datalog,0,,0,0
+448,Interval,0,,0,0
+449,Max Number of Eventlog,0,,0,0
