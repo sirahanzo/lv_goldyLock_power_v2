@@ -65,7 +65,7 @@
             <th class="text-center" id="alarm"> Fail</th>
             <th class="text-center" id="alarm"> Fail</th>
             <th class="text-center" id="alarm"> Temp</th>
-            <th class="text-center col-sm-1 " id="rect_no"> Shutdown</th>
+            <th class="text-center col-sm-1 " id="rect_no"> ShutDown/StartUP</th>
         </tr>
         </thead>
         <tbody>
@@ -128,7 +128,7 @@
 
             swal({
                 title: 'Are you sure?',
-                text: "Remote ShutDown " + cmd + " Rectifier " + rect + "!",
+                text: cmd + " Rectifier " + rect ,
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d33',
@@ -136,7 +136,7 @@
                 confirmButtonText: 'Yes !'
             }).then(
                 function () {
-                    console.log('Call ajax delete request');
+                    console.log('Call Ajax Remote Shut Down/Start Up request');
                     $('#loading-text').html('remoting');
 
                     show_loading();

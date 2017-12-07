@@ -30,11 +30,12 @@ class MonitoringController extends Controller {
 
     public function show()
     {
-        $data['system'] = ParameterMonitoring::with('monitoringsystem')->whereIn('id', [201, 202, 203, 204, 205, 207, 208, 209, 210, 211, 212])->get();
+        $data['system'] = ParameterMonitoring::with('monitoringsystem')->whereIn('id', [201, 202, 203, 204, 205, 207, 208, 209, 210])->get();//211,212 deleted
         $data['rectifier'] = ParameterMonitoring::with('monitoringrectifier')->whereIn('id', [101, 102, 104, 105, 106])->get();
         $data['rect_alarm'] = ParameterAlarm::with('alarmrectifier')->whereBetween('id', [501, 510])->get();
         $data['sys_alarm'] = ParameterAlarm::with('alarmsystem')->whereBetween('id', [601, 622])->get();
-        $data['relay'] = RelaySetting::with('monitoringsystem')->whereBetween('id', [301, 310])->get();
+        //$data['relay'] = RelaySetting::with('monitoringsystem')->whereBetween('id', [301, 310])->get();
+        $data['relay'] = RelaySetting::with('monitoringsystem')->whereBetween('id', [301, 306])->get();
 
         return view('gp._ajax_monitoring', $data);
     }

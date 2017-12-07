@@ -217,7 +217,7 @@
                                 </form>
                             @endfor
                             {{--Hibernation interval time --}}
-                            @for ($i = 14; $i < 17; $i++)
+                            @for ($i = 14; $i < 15; $i++)
                                 <form action="#" method="post" role="form" id="dc_form{{ $i }}">
                                     {{ csrf_field() }}
                                     <tr>
@@ -236,17 +236,8 @@
                                 </form>
                             @endfor
 
-
-                            </tbody>
-                        </table>
-
-                    </div>
-                    <div class="col-lg-6">
-
-                        <table class="table table-bordered table-condensed table-hover">
-                            <body>
                             {{--Battery test enable--}}
-                            @for ($i = 17; $i < 19; $i++)
+                            @for ($i = 15; $i < 17; $i++)
                                 <form action="#" method="post" role="form" id="dc_form{{ $i }}">
                                     {{ csrf_field() }}
                                     <tr>
@@ -273,19 +264,28 @@
                                 </form>
                             @endfor
 
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="col-lg-6">
+
+                        <table class="table table-bordered table-condensed table-hover">
+                            <body>
+
+
                             {{--Start Battery Test--}}
-                            {{--todo: create battre test date function--}}
-                            @for ($i = 19; $i < 20; $i++)
+                            @for ($i = 17; $i < 18; $i++)
                                 <tr>
                                     <td>Start Battery Test</td>
                                     <td>
-                                        <input type="text" class="form-control input-sm">
+                                        <input type="text" class="form-control input-sm" disabled="">
                                     </td>
                                     <td class=" col-sm-4  text-center">
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-success btn-sm btn-outline " onclick="read_setting()">READ</button>
 
-                                            <button type="button" class="btn btn-info btn-sm store_ac hide">WRITE</button>
                                             <button type="button" class="btn default btn-sm " disabled>WRITE</button>
 
                                         </div>
@@ -294,7 +294,7 @@
                             @endfor
 
                             {{--Battery test start voltage set point--}}
-                            @for ($i = 20; $i < 32; $i++)
+                            @for ($i = 18; $i < 30; $i++)
                                 <form action="#" method="post" role="form" id="dc_form{{ $i }}">
                                     {{ csrf_field() }}
                                     <tr>
@@ -329,7 +329,7 @@
                             <body>
 
                             {{--Load Current Gain/Slope--}}
-                            @for ($i = 32; $i < 38; $i++)
+                            @for ($i = 30; $i < 36; $i++)
                                 <form action="#" method="post" role="form" id="dc_form{{ $i }}">
                                     {{ csrf_field() }}
                                     <tr>
@@ -357,7 +357,7 @@
                             <body>
 
                             {{--Manual Equalizing Charge Enable--}}
-                            @for ($i = 38; $i < 39; $i++)
+                            @for ($i = 36; $i < 37; $i++)
                                 <form action="#" method="post" role="form" id="dc_form{{ $i }}">
                                     {{ csrf_field() }}
                                     <tr>
@@ -384,7 +384,7 @@
                                 </form>
                             @endfor
                             {{--Battery Currentslope--}}
-                            @for ($i = 39; $i < 42; $i++)
+                            @for ($i = 37; $i < 40; $i++)
                                 <form action="#" method="post" role="form" id="dc_form{{ $i }}">
                                     {{ csrf_field() }}
                                     <tr>
@@ -404,7 +404,7 @@
 
                             @endfor
                             {{--Fast Charge Enable--}}
-                            @for ($i = 42; $i < 43; $i++)
+                            @for ($i = 40; $i < 41; $i++)
                                 <form action="#" method="post" role="form" id="dc_form{{ $i }}">
                                     {{ csrf_field() }}
                                     <tr>
@@ -431,7 +431,7 @@
                                 </form>
                             @endfor
                             {{--Fast Charge Voltage Set Point--}}
-                            @for ($i = 43; $i < 45; $i++)
+                            @for ($i = 41; $i < 43; $i++)
                                 <form action="#" method="post" role="form" id="dc_form{{ $i }}">
                                     {{ csrf_field() }}
                                     <tr>
@@ -463,7 +463,7 @@
                     <div class="col-lg-8">
                         <table class="table table-bordered table-condensed table-hover ">
                             <tbody>
-                            @for ($i = 0; $i < 10; $i++)
+                            @for ($i = 0; $i < 6; $i++)
                                 <form action="#" method="post" role="form" id="relay_form{{$i}}">
                                     {{csrf_field()}}
                                     <tr>
@@ -512,7 +512,7 @@
                         <table class="table table-condensed table-bordered table-hover">
                             <body>
                             {{--Max Number of Datalog--}}
-                            @for ($i = 45; $i < 48; $i++)
+                            @for ($i = 43; $i < 46; $i++)
                                 <tr>
                                     <td>{{ $ctrl_setting[$i]->name }}   {{ ($ctrl_setting[$i]->unit == '')?'' : '('.$ctrl_setting[$i]->unit.')' }}</td>
                                     <td class="col-sm-3">

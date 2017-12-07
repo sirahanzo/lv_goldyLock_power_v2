@@ -1,3 +1,4 @@
+<div class="col-lg-12">
     <div class="col-md-8">
         <div class="photos">
             <div class="col-sm-2">
@@ -27,7 +28,7 @@
                 <table class=" table " id="rectifier">
 
                     <tr>
-                        <td>Voltage</td>
+                        <td>Rectifier Voltage</td>
                         @if($vrect->rect_1 != 0)
                             <td>{{round( $vrect->rect_1,1) }} V</td>
                         @elseif($vrect->rect_2 != 0)
@@ -66,7 +67,7 @@
                     </tr>
 
                     <tr>
-                        <td>Itotal</td>
+                        <td>Rectifier Current</td>
                         <td>{{ round($itotal->value,1) }} A</td>
                     </tr>
 
@@ -86,7 +87,7 @@
                         <td>{{ round($load_batt[0]->value,1) }} V</td>
                     </tr>
                     <tr>
-                        <td>I Load</td>
+                        <td>Load Current</td>
                         <td>{{ round($load_batt[2]->value,1) }} A</td>
                     </tr>
                     <tr>
@@ -103,7 +104,7 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>I Batt.</td>
+                        <td> Batt. Current</td>
                         <td>{{ round($load_batt[1]->value,1) }} A</td>
                     </tr>
                     <tr>
@@ -133,18 +134,32 @@
             </div>
             <!-- end col-12 -->
             <!-- begin col-12 -->
-            <div class="col-md-12 col-sm-6 top15 ">
-                <div class="widget widget-stats blue-bg">
-                    <div class="stats-icon stats-icon-lg"><i class="fa fa-calendar-o fa-fw"></i></div>
-                    <div class="stats-title">CHARGE/DISCHARGE CYCLE</div>
-                    <div class="stats-number">{{ $batt_cycle->value }}</div>
-                    <div class="stats-progress progress">
-                        <div style="width: 40.5%;" class="progress-bar"></div>
-                    </div>
-                    <div class="stats-desc">BATTERY</div>
-                </div>
-            </div>
+            {{--<div class="col-md-12 col-sm-6 top15 ">--}}
+                {{--<div class="widget widget-stats blue-bg">--}}
+                    {{--<div class="stats-icon stats-icon-lg"><i class="fa fa-calendar-o fa-fw"></i></div>--}}
+                    {{--<div class="stats-title">CHARGE/DISCHARGE CYCLE</div>--}}
+                    {{--<div class="stats-number">{{ $batt_cycle->value }}</div>--}}
+                    {{--<div class="stats-progress progress">--}}
+                        {{--<div style="width: 40.5%;" class="progress-bar"></div>--}}
+                    {{--</div>--}}
+                    {{--<div class="stats-desc">BATTERY</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            <!-- end col-12 -->
+            <!-- begin col-12 -->
+            {{--<div class="col-md-12 col-sm-6 top15 ">--}}
+                {{--<div class="widget widget-stats purple-bg">--}}
+                    {{--<div class="stats-icon stats-icon-lg"><i class="fa fa-server fa-fw"></i></div>--}}
+                    {{--<div class="stats-title">CHARGE/DISCHARGE CYCLE</div>--}}
+                    {{--<div class="stats-number">0</div>--}}
+                    {{--<div class="stats-progress progress">--}}
+                        {{--<div style="width: 40.5%;" class="progress-bar"></div>--}}
+                    {{--</div>--}}
+                    {{--<div class="stats-desc">BATTERY</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
             <!-- end col-12 -->
         </div>
     </div>
 
+</div>

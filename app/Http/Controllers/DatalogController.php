@@ -27,7 +27,6 @@ class DatalogController extends Controller {
 
     public function show(Request $request)
     {
-        $column = 'value_' . $request->get('pack_id');
         $from = $request->get('from');
         $to = $request->get('to');
 
@@ -36,7 +35,7 @@ class DatalogController extends Controller {
         if ($request->get('from') == "" || $request->get('to') == "") {
             $from = Carbon::now()->subHour(1);
             $to = Carbon::now()->toDateTimeString();
-            $limit = 300;
+            //$limit = 300;
             //call draw datatable function
             return $this->drawDataTable($from, $to, $limit);
 
@@ -84,7 +83,9 @@ class DatalogController extends Controller {
 
     protected function drawDataTable($from, $to, $limit)
     {
-        $datalog = $this->getLogMonitoringData($from, $to, $limit)->orderBy('updated_at', 'desc')->get();
+        $datalog = $this->getLogMonitoringData($from, $to, $limit)
+            ->orderBy('updated_at', 'desc')
+            ->get();
 
         return Datatables::of($datalog)
             ->make(true);
@@ -113,33 +114,20 @@ class DatalogController extends Controller {
                 $sheet->cell('C6', $info->address);// SITE ADDRESS
                 $sheet->cell('C7', $from);// FROM
                 $sheet->cell('C8', $to);// TO
-                $a = $b = $c = $d = $e = $f = $g = $h = $i = $j = $k = $l = $m = $n = $o = $p = $q = $r = $s = $t = $u = $v = $w = $x = $y = $z = 12;
+                $az = 12;
                 $no = 1;
                 foreach ($datalog as $log):
-                    $sheet->cell('A' . $a++, $no++)
-                        ->cell('B' . $b++, $log->updated_at)
-                        ->cell('C' . $c++, ($log->ac_volt == 0) ? '-0' : $log->ac_volt)
-                        ->cell('D' . $d++, ($log->bus_volt == 0) ? '0' : $log->bus_volt)
-                        ->cell('E' . $e++, ($log->batt_temp == 0) ? '-0' : $log->batt_temp)
-                        ->cell('F' . $f++, ($log->i_load == 0) ? '-0' : $log->i_load)
-                        ->cell('G' . $g++, ($log->i_batt == 0) ? '-0' : $log->i_batt)
-                        ->cell('H' . $h++, ($log->irect_1 == 0) ? '-0' : $log->irect_1)
-                        ->cell('I' . $i++, ($log->irect_2 == 0) ? '-0' : $log->irect_2)
-                        ->cell('J' . $j++, ($log->irect_3 == 0) ? '-0' : $log->irect_3)
-                        ->cell('K' . $k++, ($log->irect_4 == 0) ? '-0' : $log->irect_4)
-                        ->cell('L' . $l++, ($log->irect_5 == 0) ? '-0' : $log->irect_5)
-                        ->cell('M' . $m++, ($log->irect_6 == 0) ? '-0' : $log->irect_6)
-                        ->cell('N' . $n++, ($log->irect_7 == 0) ? '-0' : $log->irect_7)
-                        ->cell('O' . $o++, ($log->irect_8 == 0) ? '-0' : $log->irect_8)
-                        ->cell('P' . $p++, ($log->irect_9 == 0) ? '-0' : $log->irect_9)
-                        ->cell('Q' . $q++, ($log->irect_10 == 0) ? '-0' : $log->irect_10)
-                        ->cell('R' . $r++, ($log->irect_11 == 0) ? '-0' : $log->irect_11)
-                        ->cell('S' . $s++, ($log->irect_12 == 0) ? '-0' : $log->irect_12)
-                        ->cell('T' . $t++, ($log->irect_13 == 0) ? '-0' : $log->irect_13)
-                        ->cell('U' . $u++, ($log->irect_14 == 0) ? '-0' : $log->irect_14)
-                        ->cell('V' . $v++, ($log->irect_15 == 0) ? '-0' : $log->irect_15)
-                        ->cell('W' . $w++, ($log->irect_16 == 0) ? '-0' : $log->irect_16)
-                        ->cell('X' . $x++, '=SUM(H' . $y++ . ':W' . $z++ . ')');
+                    $cell = $az++;
+                    $sheet->cell('A' . $cell, $no++)
+                        ->cell('B' . $cell, $log->updated_at)
+                        ->cell('C' . $cell, ($log->ac_volt_r == 0) ? '-0' : $log->ac_volt_r)
+                        ->cell('D' . $cell, ($log->ac_volt_s == 0) ? '-0' : $log->ac_volt_s)
+                        ->cell('E' . $cell, ($log->ac_volt_t == 0) ? '-0' : $log->ac_volt_t)
+                        ->cell('F' . $cell, ($log->bus_volt == 0) ? '-0' : $log->bus_volt)
+                        ->cell('G' . $cell, ($log->batt_temp == 0) ? '-0' : $log->batt_temp)
+                        ->cell('H' . $cell, ($log->i_batt == 0) ? '-0' : $log->i_batt)
+                        ->cell('I' . $cell, ($log->i_load == 0) ? '-0' : $log->i_load)
+                        ->cell('J' . $cell, ($log->irect_total == 0) ? '-0' : $log->irect_total);
                 endforeach;
 
             });

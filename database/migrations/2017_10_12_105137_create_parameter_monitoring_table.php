@@ -16,7 +16,7 @@ class CreateParameterMonitoringTable extends Migration
         Schema::create('parameter_monitoring', function (Blueprint $table) {
             $table->increments('id');
             $table->char('name',255);
-            $table->char('unit',50);
+            $table->char('unit',50)->nullable();
             $table->timestamps();
         });
     }

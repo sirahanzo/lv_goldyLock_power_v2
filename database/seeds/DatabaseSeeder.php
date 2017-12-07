@@ -11,6 +11,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+         $this->call(UsersSeeder::class);
+        $this->call(AlarmCodeSeeder::class);
+        $this->call(ControllSettingCodeSeeder::class);
+        $this->call(CurrentPageSeeder::class);
+        $this->call(MonitoringAlarmRectifierSeeder::class);
+        $this->call(MonitoringAlarmSystemSeeder::class);
+        $this->call(MonitoringDataRectifierSeeder::class);
+        $this->call(MonitoringDataSystemSeeder::class);
+        $this->call(NetworkSeeder::class);
+        $this->call(ParameterAlarmSeeder::class);
+        $this->call(ParameterMonitoringSeeder::class);
+        $this->call(RellaySettingSeeder::class);
+        $this->call(RellayTypeSeeder::class);
+        $this->call(SiteInfoSeeder::class);
     }
 }

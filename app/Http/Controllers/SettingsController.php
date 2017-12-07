@@ -115,8 +115,6 @@ class SettingsController extends Controller {
 
     public function saveAC()
     {
-        //DB::table('current_page')->update('id',['setting_id'=> Input::get('id')['401'],'value' => $value]);
-
         foreach (Input::get('id') as $id => $value):
             ControllSetting::where('id', $id)->update($value);
             $this->flagsSettingControll($id);
@@ -144,15 +142,15 @@ class SettingsController extends Controller {
 
     public function saveLog(LogRequest $request)
     {
-        //dd($request->get('id')[447]['value']);//max number of datalog
-        //dd($request->get('id')[448]['value']);//interval
-        //dd($request->get('id')[449]['value']);//max number of eventlog
+        //dd($request->get('id')[445]['value']);//max number of datalog
+        //dd($request->get('id')[446]['value']);//interval
+        //dd($request->get('id')[447]['value']);//max number of eventlog
 
         foreach ($request->get('id') as $id => $value):
             ControllSetting::where('id', $id)->update($value);
         endforeach;
 
-        $interval = $request->get('id')[448]['value'];
+        $interval = $request->get('id')[446]['value'];
         DB::unprepared('ALTER EVENT event_log_data_monitoring ON SCHEDULE EVERY ' . $interval . ' MINUTE STARTS CURRENT_TIMESTAMP');
 
         return response('SAVED', 200);
@@ -192,7 +190,6 @@ class SettingsController extends Controller {
     {
         shell_exec('sudo reboot');
     }
-
 
 
 }

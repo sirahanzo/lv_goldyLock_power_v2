@@ -292,8 +292,8 @@
                         closeButton: true,
                         positionClass: "toast-bottom-right",
                         preventDuplicates: true,
-                        preventOpenDuplicates: true
-                        //timeOut: 5000
+                        preventOpenDuplicates: true,
+                        timeOut: 5000
                     });
                 });
             }
@@ -368,8 +368,8 @@
                 break
         }
 
-//        ajaxPushAlarmNotification();
-//        ajaxSumOfAlarm();
+        ajaxPushAlarmNotification();
+        ajaxSumOfAlarm();
 
     }
 

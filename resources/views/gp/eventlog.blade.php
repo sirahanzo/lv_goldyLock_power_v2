@@ -10,6 +10,7 @@
         .btn-darker-1.active {
             background-color: lightseagreen;
         }
+
         .dataTables_wrapper .dataTables_processing {
             position: absolute;
             top: 80%;
@@ -21,8 +22,8 @@
             padding-top: 20px;
             text-align: center;
             font-size: 1.2em;
-            background:none;
-            background-color:lightskyblue;
+            background: none;
+            background-color: lightskyblue;
             color: white;
         }
     </style>
@@ -52,13 +53,13 @@
         </div>
     </form>
     <hr>
-    <table  id="myTable" class="table  responsive nowrap table-condensed " cellspacing="0" width="100%">
+    <table id="myTable" class="table  responsive nowrap table-condensed " cellspacing="0" width="100%">
 
         <thead>
         <tr>
-            <th class="col-sm-2">DTime</th>
+            <th class="col-sm-2">Date/Time</th>
             <th>Name Alarm</th>
-            <th>System</th>
+            <th>Identity</th>
             <th>Event</th>
 
         </tr>
@@ -81,21 +82,24 @@
 
         function drawPackData(form) {
 
-            var oTable = $('#myTable').DataTable( {
-                scrollX:        true,
+            var oTable = $('#myTable').DataTable({
+                scrollX: true,
                 scrollCollapse: true,
-                paging:         true,
+                paging: true,
                 serverSide: true,
-                processing:true,
-                ajax: '{{ route('show eventlog') }}?'+form,
-                columns:[
-                    {data:'updated_at',name:'updated_at'},
-                    {data:'name',name:'name'},
-                    {data:'rectifier',name:'rectifier'},
-                    {data:'alarm',name:'value'},
+                processing: true,
+                ajax: {
+                    "url": '{{ route('show eventlog') }}?' + form,
+                    "type": "POST"
+                },
+                columns: [
+                    {data: 'updated_at', name: 'updated_at'},
+                    {data: 'name', name: 'name'},
+                    {data: 'rectifier', name: 'rectifier'},
+                    {data: 'alarm', name: 'value'},
 
                 ]
-            } );
+            });
             oTable.clear().draw(true);
         }
 

@@ -16,7 +16,7 @@
         <th class="text-center" id="alarm" data-toggle="tooltip" title="AC Fail Alarm">AC</th>
         <th class="text-center" id="alarm" data-toggle="tooltip" title="Fan Fail Alarm">Fan</th>
         <th class="text-center" id="alarm" data-toggle="tooltip" title="High Temperature Alarm">Hi</th>
-        <th class="text-center" id="rect_no" data-toggle="tooltip" title="Remote Shutdown Rectifier ">Remote</th>
+        <th class="text-center" id="rect_no" data-toggle="tooltip" title="Remote ShutDown/StartUp Rectifier ">Remote</th>
     </tr>
     <tr class="bg-primary1">
         <th id="rect_no" data-toggle="tooltip" title="Rectifier Number"> Rect. #</th>
@@ -35,7 +35,7 @@
         <th class="text-center" id="alarm" data-toggle="tooltip" title="AC Fail Alarm"> Fail</th>
         <th class="text-center" id="alarm" data-toggle="tooltip" title="Fan Fail Alarm"> Fail</th>
         <th class="text-center" id="alarm" data-toggle="tooltip" title="High Temperature Alarm"> Temp</th>
-        <th class="text-center col-sm-1 " id="rect_no" data-toggle="tooltip" title="Remote Shutdown Rectifier "> Shutdown</th>
+        <th class="text-center col-sm-1 " id="rect_no" data-toggle="tooltip" title="Remote ShutDown/StartUp Rectifier ">ShutDown/StartUP</th>
 
     </tr>
     </thead>
@@ -145,9 +145,9 @@
                     <input type="hidden" id="rectifier" name="rectifier" value="{{ $i }}">
                     <input type="hidden" id="value" name="value" value="{{ ($rectifier[3]->monitoringrectifier->$rect == 0)?1:0 }}">
                     @if($rectifier[3]->monitoringrectifier->$rect == 0)
-                        <button type="button" class="btn btn-xs btn120  red btn-outline1" onclick="remote({{$i}},'OFF')" id="shutdown_btn">OFF</button>
+                        <button type="button" class="btn btn-xs btn120  red btn-outline1" onclick="remote({{$i}},'SHUT DOWN')" id="shutdown_btn">OFF</button>
                     @else
-                        <button type="button" class="btn btn-xs btn120  green btn-outline1" onclick="remote({{$i}},'ON')" id="shutdown_btn">ON</button>
+                        <button type="button" class="btn btn-xs btn120  green btn-outline1" onclick="remote({{$i}},'START UP')" id="shutdown_btn">ON</button>
                     @endif
 
 

@@ -4,7 +4,7 @@
     <style>
         #schematic {
             margin-bottom: -300px;
-            margin-left: 60px;
+            margin-left: 100px;
             margin-top: 60px;
         }
 
@@ -29,9 +29,9 @@
 @section('content')
     <div class="row">
 
-        <div class="col-md-8">
+        <div class="col-lg-12 ">
             <div class="photos">
-                <div id="schematic">
+                <div id="schematic" class="col-sm-offset-2">
                     <img alt="image" class="feed-photo" src="{{ asset('/') }}img/schematic.png" style="max-height: 300px">
 
                 </div>
@@ -39,7 +39,7 @@
             </div>
         </div>
         <section id="dashboard">
-            <div>
+            <div class="col-lg-12">
                 <div class="col-md-8">
                     <div class="photos">
                         <div class="col-sm-2">
@@ -67,14 +67,15 @@
                         </div>
                         <div class="col-sm-3 col-md-offset-4">
                             <table class=" table " id="rectifier">
+                               <tbody>
 
                                 <tr>
-                                    <td>Voltage</td>
+                                    <td>Rectifier Voltage</td>
                                     <td>0 V</td>
                                 </tr>
 
                                 <tr>
-                                    <td>Itotal</td>
+                                    <td>Rectifier Current</td>
                                     <td>0 A</td>
                                 </tr>
 
@@ -94,7 +95,7 @@
                                     <td>0 V</td>
                                 </tr>
                                 <tr>
-                                    <td>I Load</td>
+                                    <td>Load Current</td>
                                     <td>0 A</td>
                                 </tr>
                                 <tr>
@@ -111,11 +112,11 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>I Batt.</td>
+                                    <td>Batt. Current</td>
                                     <td>0 A</td>
                                 </tr>
                                 <tr>
-                                    <td>Batt. Temp.</td>
+                                    <td><Batt></Batt>. Temp.</td>
                                     <td>0 &deg;C</td>
                                 </tr>
 
@@ -141,18 +142,31 @@
                         </div>
                         <!-- end col-12 -->
                         <!-- begin col-12 -->
-                        <div class="col-md-12 col-sm-6 top15 ">
-                            <div class="widget widget-stats blue-bg">
-                                <div class="stats-icon stats-icon-lg"><i class="fa fa-calendar-o fa-fw"></i></div>
-                                <div class="stats-title">CHARGE/DISCHARGE CYCLE</div>
-                                <div class="stats-number">0</div>
-                                <div class="stats-progress progress">
-                                    <div style="width: 40.5%;" class="progress-bar"></div>
-                                </div>
-                                <div class="stats-desc">BATTERY</div>
-                            </div>
-                        </div>
+                        {{--<div class="col-md-12 col-sm-6 top15 ">--}}
+                            {{--<div class="widget widget-stats blue-bg">--}}
+                                {{--<div class="stats-icon stats-icon-lg"><i class="fa fa-calendar-o fa-fw"></i></div>--}}
+                                {{--<div class="stats-title">CHARGE/DISCHARGE CYCLE</div>--}}
+                                {{--<div class="stats-number">0</div>--}}
+                                {{--<div class="stats-progress progress">--}}
+                                    {{--<div style="width: 40.5%;" class="progress-bar"></div>--}}
+                                {{--</div>--}}
+                                {{--<div class="stats-desc">BATTERY</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
                         <!-- end col-12 -->
+                        {{--<!-- begin col-12 -->--}}
+                        {{--<div class="col-md-12 col-sm-6 top15 ">--}}
+                            {{--<div class="widget widget-stats purple-bg">--}}
+                                {{--<div class="stats-icon stats-icon-lg"><i class="fa fa-calendar-o fa-fw"></i></div>--}}
+                                {{--<div class="stats-title">CHARGE/DISCHARGE CYCLE</div>--}}
+                                {{--<div class="stats-number">0</div>--}}
+                                {{--<div class="stats-progress progress">--}}
+                                    {{--<div style="width: 40.5%;" class="progress-bar"></div>--}}
+                                {{--</div>--}}
+                                {{--<div class="stats-desc">BATTERY</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<!-- end col-12 -->--}}
                     </div>
                 </div>
             </div>

@@ -52,7 +52,7 @@ class AdministrationController extends Controller
      */
     public function show()
     {
-        $user = User::whereNotIn('name',['superadmin','super'])->get();
+        $user = User::whereNotIn('name',['superadmin','super','admin'])->get();
 
         return Datatables::of($user)->addColumn('option', function ($user) {
             return '<button type="button" class="btn btn-info btn120 btn-outline btn-sm " onclick="edit(' . $user['id'] . ')" ><i class="fa fa-pencil"></i> EDIT </button>

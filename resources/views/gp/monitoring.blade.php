@@ -43,14 +43,14 @@
                             <tr>
                                 <td> Battery temperature </td>
                                 <td class="text-right"> 0 &deg;C </td>
-                                <td> Battery charge/discharge cycle </td>
-                                <td class="text-right"> 0 </td>
+                                <td>  </td>
+                                <td class="text-right">  </td>
                             </tr>
                             <tr>
                                 <td> Ambient temperature </td>
                                 <td class="text-right"> 0 &deg;C </td>
-                                <td> Available capacity of battery </td>
-                                <td class="text-right"> 0 % </td>
+                                <td> </td>
+                                <td class="text-right"> </td>
                             </tr>
                             <tr>
                                 <td> Ambient humidity </td>
@@ -72,35 +72,24 @@
                             <tr>
                                 <td> Relay 1 </td>
                                 <td> Connect </td>
-                                <td> Relay 5 </td>
-                                <td> Connect </td>
-                                <td> Relay 9 </td>
+                                <td> Relay 4 </td>
                                 <td> Connect </td>
                             </tr>
                             <tr>
                                 <td> Relay 2 </td>
                                 <td> Connect </td>
-                                <td> Relay 6 </td>
-                                <td> Connect </td>
-                                <td> Relay 10 </td>
+                                <td> Relay 5 </td>
                                 <td> Connect </td>
                             </tr>
                             <tr>
                                 <td> Relay 3 </td>
                                 <td> Connect </td>
-                                <td> Relay 7 </td>
+                                <td> Relay 6 </td>
                                 <td> Connect </td>
                                 <td> </td>
                                 <td> </td>
                             </tr>
-                            <tr>
-                                <td> Relay 4 </td>
-                                <td> Connect </td>
-                                <td> Relay 8 </td>
-                                <td> Connect </td>
-                                <td> </td>
-                                <td> </td>
-                            </tr>
+
                             </tbody>
                         </table>
                     </div>

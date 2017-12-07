@@ -15,7 +15,9 @@ use Route;
 
 class AlarmlogController extends Controller {
 
+
     use GpTrait;
+
 
     public function index()
     {
@@ -59,7 +61,7 @@ class AlarmlogController extends Controller {
         $from = $request->get('from');
         $to = $request->get('to');
 
-        $limit = $this->datalogLimit(449);
+        $limit = $this->datalogLimit(447);
         $loadTemplate = 'EventLogTemplate.xlsx';
         $fileLogName = 'EventLog_' . $from . '_' . $to;
 
@@ -93,13 +95,12 @@ class AlarmlogController extends Controller {
     {
         return Datatables::of($eventlog)->addColumn('alarm', function ($alarm) {
             if ($alarm->value == 1) {
-                return 'Alarm Start';
+                return 'Active';
             } else {
-                return 'Alarm Cleared';
+                return 'Deactive';
             }
         })->make(true);
     }
-
 
 
     protected function ExportToExcell(Excel $phpexcel, $from, $to, $limit, $loadTemplate, $fileLogName)
@@ -119,15 +120,15 @@ class AlarmlogController extends Controller {
                 $sheet->cell('C5', $info->address);// SITE ADDRESS
                 $sheet->cell('C6', $from);// FROM
                 $sheet->cell('C7', $to);// TO
-                $a = $b = $c = $d = $e = $f = $g = $h = $i = $j = $k = $l = $m = $n = $o = $p = $q = $r = $s = $t = $u = $v = $w = $x = $y = $z = 10;
+                $az = 10;
                 $no = 1;
                 foreach ($eventlog as $log):
-                    $sheet->cell('A' . $a++, $no++)
-                        ->cell('C' . $c++, $log->updated_at)
-                        ->cell('D' . $d++, $log->name)
-                        ->cell('E' . $e++, $log->rectifier)
-                        ->cell('F' . $f++, ($log->event == 1)?'Alarm Start':'Alarm Clear')
-                        ;
+                    $cell = $az++;
+                    $sheet->cell('A' . $cell, $no++)
+                        ->cell('C' . $cell, $log->updated_at)
+                        ->cell('D' . $cell, $log->name)
+                        ->cell('E' . $cell, $log->rectifier)
+                        ->cell('F' . $cell, ($log->event == 1) ? 'Active' : 'Deactive');
                 endforeach;
 
             });

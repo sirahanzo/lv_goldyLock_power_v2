@@ -17,7 +17,7 @@ class CreateParameterControllSettingTable extends Migration
             $table->increments('id');
             $table->char('name',255);
             $table->double('value');
-            $table->char('unit',20);
+            $table->char('unit',20)->nullable();
             $table->timestamps();
         });
     }

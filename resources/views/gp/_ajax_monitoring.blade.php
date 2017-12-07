@@ -43,7 +43,7 @@
                 <div class="panel-body1">
                     <table class="table table-hover table-condensed">
                         <tbody>
-                        @for($i=0,$x=4,$y=8;$i<4;[$i++,$x++,$y++])
+                        @for($i=0,$x=3,$y=6;$i<3;[$i++,$x++,$y++])
                             <tr>
                                 <td>
                                     @if(isset($relay[$i]))

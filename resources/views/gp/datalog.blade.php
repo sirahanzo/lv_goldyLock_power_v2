@@ -10,6 +10,7 @@
         .btn-darker-1.active {
             background-color: lightseagreen;
         }
+
         .dataTables_wrapper .dataTables_processing {
             position: absolute;
             top: 80%;
@@ -21,8 +22,8 @@
             padding-top: 20px;
             text-align: center;
             font-size: 1.2em;
-            background:none;
-            background-color:lightskyblue;
+            background: none;
+            background-color: lightskyblue;
             color: white;
         }
     </style>
@@ -51,32 +52,34 @@
             </div>
         </div>
     </form>
-    <table  id="myTable" class="table  responsive nowrap  " cellspacing="0" width="100%">
+    <table id="myTable" class="table  responsive nowrap  " cellspacing="0" width="100%">
 
-    <thead>
+        <thead>
         <tr>
-            <th class="col-sm-2">DTime</th>
-            <th>AC Volt</th>
-            <th>Bus Volt</th>
-            <th>Batt Temp</th>
-            <th>ILoad</th>
-            <th>IBatt</th>
-            <th>Irect1</th>
-            <th>Irect2</th>
-            <th>Irect3</th>
-            <th>Irect4</th>
-            <th>Irect5</th>
-            <th>Irect6</th>
-            <th>Irect7</th>
-            <th>Irect8</th>
-            <th>Irect9</th>
-            <th>Irect10</th>
-            <th>Irect11</th>
-            <th>Irect12</th>
-            <th>Irect13</th>
-            <th>Irect14</th>
-            <th>Irect15</th>
-            <th>Irect16</th>
+            <th class="col-sm-2">Date/Time</th>
+            <th>Phase R (V)</th>
+            <th>Phase S (V)</th>
+            <th>Phase T (V)</th>
+            <th>Bus Voltage (V)</th>
+            <th>Batt Temp (&deg;C)</th>
+            <th>Load Current(A)</th>
+            <th>Batt. Current (A)</th>
+            <th>Rectifier Current (A)</th>
+            {{--<th>Irect2</th>--}}
+            {{--<th>Irect3</th>--}}
+            {{--<th>Irect4</th>--}}
+            {{--<th>Irect5</th>--}}
+            {{--<th>Irect6</th>--}}
+            {{--<th>Irect7</th>--}}
+            {{--<th>Irect8</th>--}}
+            {{--<th>Irect9</th>--}}
+            {{--<th>Irect10</th>--}}
+            {{--<th>Irect11</th>--}}
+            {{--<th>Irect12</th>--}}
+            {{--<th>Irect13</th>--}}
+            {{--<th>Irect14</th>--}}
+            {{--<th>Irect15</th>--}}
+            {{--<th>Irect16</th>--}}
         </tr>
         </thead>
 
@@ -97,38 +100,28 @@
 
         function drawPackData(form) {
 
-            var oTable = $('#myTable').DataTable( {
-                scrollX:        true,
+            var oTable = $('#myTable').DataTable({
+                scrollX: true,
                 scrollCollapse: true,
-                paging:         true,
+                paging: true,
                 serverSide: true,
-                processing:true,
-                ajax: '{{ route('show datalog') }}?'+form,
-                columns:[
-                    {data:'updated_at',name:'log_monitoring.updated_at'},
-                    {data:'ac_volt',name:'log_monitoring.ac_volt'},
-                    {data:'bus_volt',name:'log_monitoring.bus_volt'},
-                    {data:'batt_temp',name:'log_monitoring.batt_temp'},
-                    {data:'i_load',name:'log_monitoring.i_load'},
-                    {data:'i_batt',name:'log_monitoring.i_batt'},
-                    {data:'irect_1',name:'log_monitoring.irect_1'},
-                    {data:'irect_2',name:'log_monitoring.irect_2'},
-                    {data:'irect_3',name:'log_monitoring.irect_3'},
-                    {data:'irect_4',name:'log_monitoring.irect_4'},
-                    {data:'irect_5',name:'log_monitoring.irect_5'},
-                    {data:'irect_6',name:'log_monitoring.irect_6'},
-                    {data:'irect_7',name:'log_monitoring.irect_7'},
-                    {data:'irect_8',name:'log_monitoring.irect_8'},
-                    {data:'irect_9',name:'log_monitoring.irect_9'},
-                    {data:'irect_10',name:'log_monitoring.irect_10'},
-                    {data:'irect_11',name:'log_monitoring.irect_11'},
-                    {data:'irect_12',name:'log_monitoring.irect_12'},
-                    {data:'irect_13',name:'log_monitoring.irect_13'},
-                    {data:'irect_14',name:'log_monitoring.irect_14'},
-                    {data:'irect_15',name:'log_monitoring.irect_15'},
-                    {data:'irect_16',name:'log_monitoring.irect_16'}
+                processing: true,
+                ajax: {
+                    "url": '{{ route('show datalog') }}?' + form,
+                    "type": "POST"
+                },
+                columns: [
+                    {data: 'updated_at', name: 'log_monitoring.updated_at'},
+                    {data: 'ac_volt_r', name: 'log_monitoring.ac_volt_r'},
+                    {data: 'ac_volt_s', name: 'log_monitoring.ac_volt_s'},
+                    {data: 'ac_volt_t', name: 'log_monitoring.ac_volt_t'},
+                    {data: 'bus_volt', name: 'log_monitoring.bus_volt'},
+                    {data: 'batt_temp', name: 'log_monitoring.batt_temp'},
+                    {data: 'i_load', name: 'log_monitoring.i_load'},
+                    {data: 'i_batt', name: 'log_monitoring.i_batt'},
+                    {data: 'irect_total', name: 'log_monitoring.irect_total'}
                 ]
-            } );
+            });
             oTable.clear().draw(true);
         }
 

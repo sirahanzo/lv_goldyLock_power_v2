@@ -22,7 +22,7 @@ class CreateTriggerLogAlarm extends Migration {
 
                 IF NEW.value <> OLD.value
                 THEN
-                  INSERT INTO log_alarm (parameter_id,name, rectifier, value, updated_at) VALUES (new.parameter_id,(SELECT name FROM `parameter_alarm` WHERE id = NEW.parameter_id),"", new.value, new.updated_at);
+                  INSERT INTO log_alarm (parameter_id,name, rectifier, value, updated_at) VALUES (new.parameter_id,(SELECT name FROM `parameter_alarm` WHERE id = NEW.parameter_id),"System", new.value, new.updated_at);
             
                 END IF;
 
