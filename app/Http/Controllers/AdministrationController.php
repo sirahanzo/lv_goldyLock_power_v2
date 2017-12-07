@@ -7,8 +7,9 @@ use App\User;
 use Datatables;
 use Illuminate\Http\Request;
 
-class AdministrationController extends Controller
-{
+class AdministrationController extends Controller {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +19,7 @@ class AdministrationController extends Controller
     {
         return view('gp.user_administration');
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -29,30 +31,32 @@ class AdministrationController extends Controller
         //
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(UsersRequest $request)
     {
-        if (!empty($request->id)){
-            $this->update($request,$request->id);
-        }else{
+        if (!empty($request->id)) {
+            $this->update($request, $request->id);
+        } else {
             User::create($request->all());
         }
     }
 
+
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show()
     {
-        $user = User::whereNotIn('name',['superadmin','super','admin'])->get();
+        $user = User::whereNotIn('name', ['superadmin', 'super', 'admin'])->get();
 
         return Datatables::of($user)->addColumn('option', function ($user) {
             return '<button type="button" class="btn btn-info btn120 btn-outline btn-sm " onclick="edit(' . $user['id'] . ')" ><i class="fa fa-pencil"></i> EDIT </button>
@@ -60,10 +64,11 @@ class AdministrationController extends Controller
         })->make(true);
     }
 
+
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -71,11 +76,12 @@ class AdministrationController extends Controller
         return User::findOrFail($id);
     }
 
+
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -83,20 +89,22 @@ class AdministrationController extends Controller
         User::find($id)->fill($request->all())->save();
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //User::destroy($id);
-        if (User::find($id)->username != 'admin' || User::find($id)->username != 'superadmin'){
+        if (User::find($id)->username != 'admin' || User::find($id)->username != 'superadmin') {
             User::destroy($id);
-            return response('DELETED',200);
+            return response('DELETED', 200);
         }
 
-        return response(['message' => 'Not Allowed'],500);
+        return response(['message' => 'Not Allowed'], 500);
+
     }
 }

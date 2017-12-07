@@ -33,7 +33,7 @@ class DatalogController extends Controller {
         $limit = 1000;
 
         if ($request->get('from') == "" || $request->get('to') == "") {
-            $from = Carbon::now()->subHour(1);
+            $from = Carbon::now()->subHour(1);//todo: change to methode latest
             $to = Carbon::now()->toDateTimeString();
             //$limit = 300;
             //call draw datatable function

@@ -29,7 +29,7 @@ class AlarmlogController extends Controller {
 
     public function show(Request $request)
     {
-        $column = 'value_' . $request->get('pack_id');
+        //$column = 'value_' . $request->get('pack_id');
         $from = $request->get('from');
         $to = $request->get('to');
 
