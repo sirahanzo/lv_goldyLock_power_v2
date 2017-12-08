@@ -62,4 +62,14 @@ class DashboardController extends Controller {
     }
 
 
+    public function updatePageAjaxRequest($page)
+    {
+        DB::table('current_page')->update([
+            'page' =>$page,
+            'updated_at' => Carbon::now()
+        ]);
+
+        return response('Current Page Upated',200);
+    }
+
 }

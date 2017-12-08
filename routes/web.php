@@ -44,6 +44,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::get('show-dashboard', 'DashboardController@show')->name('ajax dashboard');
 
+    //Update currentpage
+    Route::get('ajax-page/{page}','DashboardController@updatePageAjaxRequest')->name('ajax-page');
+
 
     //monitoring group
     Route::get('monitoring', 'MonitoringController@index')->name('monitoring');
@@ -71,7 +74,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('setting-controll', 'SettingsController@controll')->name('setting controll');
     Route::post('save-ac', 'SettingsController@saveAC')->name('save ac');
     Route::post('save-rectifier', 'SettingsController@saveAC')->name('save rectifier');
-    Route::post('save-dc', 'SettingsController@saveAC')->name('save dc');
+    Route::post('save-dc', 'SettingsController@saveDC')->name('save dc');
     //todo : tempary all controll save use one route because no verify data
     //Route::post('save-rectifier','SettingsController@saveRectfier')->name('save rectifier');
     Route::post('save-relay', 'SettingsController@saveRelay')->name('save relay');
@@ -106,6 +109,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('download-eventlog', 'AlarmlogController@download')->name('download eventlog');
 
     //Route::get('debug','SettingsController@debug');
+
+
 
 });
 

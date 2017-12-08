@@ -7,6 +7,7 @@ use App\Http\Models\LogAlarm;
 use App\Http\Models\ParameterAlarm;
 use App\Http\Models\RelaySetting;
 use App\Http\Models\RelayType;
+use App\Http\Requests\BatteryTestRequest;
 use App\Http\Requests\LogRequest;
 use App\Http\Requests\NetworkRequest;
 use App\Http\Requests\SiteInformationRequest;
@@ -109,25 +110,46 @@ class SettingsController extends Controller {
     public function readSetting()
     {
         //todo:create shell_exec to exeute read seeting
+        //todo : replate this function with update datebase currrent_page , base on tab controll setting
         return response('OK', 200);
     }
 
 
     public function saveAC()
     {
-        foreach (Input::get('id') as $id => $value):
-            ControllSetting::where('id', $id)->update($value);
-            $this->flagsSettingControll($id);
-        endforeach;
+        $this->saveArrayControllSetting();
+    }
+
+
+    public function saveDC()
+    {
+        if (Input::get('id')['421']['value'] === '0') {
+            $this->saveArrayControllSetting();
+        }else{
+
+            $validator = Validator::make(Input::get(), [
+                'id.421.value' => 'required|numeric|between:7,1000',
+            ]);
+
+
+            if ($validator->fails()) {
+                $message = [
+                    'message' => 'The Value Must 0 or, Between 7 And 1000'
+                ];
+                return response()->json($message, 422);
+            }
+
+
+            $this->saveArrayControllSetting();
+        }
+
     }
 
 
     public function saveRectfier()
     {
-        foreach (Input::get('id') as $id => $value):
-            ControllSetting::where('id', $id)->update($value);
-            $this->flagsSettingControll($id);
-        endforeach;
+
+        $this->saveArrayControllSetting();
     }
 
 
@@ -190,7 +212,6 @@ class SettingsController extends Controller {
     {
         shell_exec('sudo reboot');
     }
-
 
 
 }

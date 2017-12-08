@@ -162,4 +162,12 @@ trait GpTrait {
     }
 
 
+    protected function saveArrayControllSetting()
+    {
+        foreach (Input::get('id') as $id => $value):
+            ControllSetting::where('id', $id)->update($value);
+            $this->flagsSettingControll($id);
+        endforeach;
+    }
+
 }

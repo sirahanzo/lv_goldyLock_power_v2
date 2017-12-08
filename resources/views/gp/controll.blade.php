@@ -273,8 +273,7 @@
 
                         <table class="table table-bordered table-condensed table-hover">
                             <body>
-
-
+                            
                             {{--Start Battery Test--}}
                             @for ($i = 17; $i < 18; $i++)
                                 <tr>
@@ -541,6 +540,41 @@
 @section('js')
     <script>
 
+        function set_to_monitoring() {
+            setTimeout(function () {
+                console.log('After 5 secons Current Page will Update To monitoring');
+                update_currentpage(1);
+            }, 5000);
+        }
+
+        $(document).ready(function() {
+            set_to_monitoring();
+        });
+
+
+        function update_currentpage(target) {
+            $.ajax({
+                url: '{{ url('ajax-page') }}/'+target,
+                //data: target,
+                type: 'GET',
+                success: function () {
+                    console.log('Current Page Upadated with Ajax');
+//                    call_update();
+                }
+            })
+        }
+
+
+
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            var target = parseInt($(e.target).attr("href").charAt(5))+parseInt(1); // activated tab
+            //alert(target);
+
+            update_currentpage(target);
+            set_to_monitoring();
+        });
+
+
         function save_ac(id) {
             console.log('Store AC with Ajax Request');
             var route = '{{ route('save ac') }}';
@@ -550,6 +584,8 @@
 
             //call function ajax request
             store(route, form, text);
+            set_to_monitoring();
+
         }
 
         function save_rect(id) {
@@ -561,6 +597,8 @@
 
             //call function ajax request
             store(route, form, text);
+            set_to_monitoring();
+
         }
 
         function save_dc(id) {
@@ -572,6 +610,8 @@
 
             //call function ajax request
             store(route, form, text);
+            set_to_monitoring();
+
         }
 
         function save_relay(id) {
@@ -583,6 +623,8 @@
 
             //call function ajax request
             store(route, form, text);
+            set_to_monitoring();
+
         }
 
         function save_log() {
@@ -594,6 +636,8 @@
 
             //call function ajax request
             store(route, form, text);
+            set_to_monitoring();
+
 
         }
 
